@@ -15,5 +15,5 @@ It uses only the basic features of corrplot but advanced features will be added.
 ### `plot_loading`
 Plots the loading matrix. The loadings are extracted from MPLUS output from the parameters section. Any row with 'BY' is considered as loading. An example plot:
 
-
+![](inst/extdata/loading_example.png)
 
