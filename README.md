@@ -28,3 +28,9 @@ plot_esem(model_output = mplus_out, covariates = c('AGE','SEX','BMI'),indep.var 
 
 ![](inst/extdata/esem_example.png)
 
+The last red shaded row represent the parameter estimate of the dependent variable on the factors. In the sample example, the dependent variable was the C-reactive protein. 
+
+### plot_scree
+
+Use the correlation matrix from MPLUS output and make a simple `geom_point` ggplot. Some more fancy features will be added. 
+
