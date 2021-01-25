@@ -34,3 +34,8 @@ The last red shaded row represent the parameter estimate of the dependent variab
 
 Use the correlation matrix from MPLUS output and make a simple `geom_point` ggplot. Some more fancy features will be added. 
 
+### plot_factor_cor
+
+Use the WITH rows of the parameter estimation output e.g. F2.WITH F1, F2.WITH F2 etc to get correlation matrix and use corrplot to plot it
+
+
