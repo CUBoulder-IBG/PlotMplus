@@ -3,6 +3,7 @@
 export(plot_assoc)
 export(plot_cor)
 export(plot_esem)
+export(plot_factor_cor)
 export(plot_loadings)
 export(plot_scree)
 import(MplusAutomation)
