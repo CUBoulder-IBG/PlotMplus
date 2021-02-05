@@ -3,6 +3,7 @@
 export(plot_assoc)
 export(plot_cor)
 export(plot_esem)
+export(plot_esem_marginal)
 export(plot_factor_cor)
 export(plot_loadings)
 export(plot_scree)

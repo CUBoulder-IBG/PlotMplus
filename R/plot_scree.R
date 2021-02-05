@@ -1,9 +1,11 @@
 #'Plot scree plot
 #'
 #' @param model_output The output from mplus model
+#' @param model The model extracted using `MplusAutomation::readModel`
 #' @export
 
-plot_scree<-function(model_output){
+plot_scree<-function(model_output = NA, model = NA){
+  main_model = ifelse(is.na(model), readModels(model_output), model)
   main_model = readModels(model_output)
   corr = main_model$sampstat$correlations.vardiag
   corr[upper.tri(corr)]=0

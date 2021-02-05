@@ -4,10 +4,12 @@
 \alias{plot_assoc}
 \title{Makes a table with associations}
 \usage{
-plot_assoc(model_output)
+plot_assoc(model_output = NA, model = NA, indep.var)
 }
 \arguments{
 \item{model_output}{The output from mplus model}
+
+\item{model}{The model extracted using `MplusAutomation::readModel`}
 }
 \value{
 A table that contains the parameter estimate, standard error and p-value

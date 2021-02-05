@@ -4,10 +4,12 @@
 \alias{plot_scree}
 \title{Plot scree plot}
 \usage{
-plot_scree(model_output)
+plot_scree(model_output = NA, model = NA)
 }
 \arguments{
 \item{model_output}{The output from mplus model}
+
+\item{model}{The model extracted using `MplusAutomation::readModel`}
 }
 \description{
 Plot scree plot

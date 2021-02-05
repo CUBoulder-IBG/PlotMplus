@@ -1,5 +1,6 @@
 #' Makes a table with associations
 #' @param model_output The output from mplus model
+#' @param model The model extracted using `MplusAutomation::readModel`
 #'
 #' @description `plot_assoc` takes the parameter estimate from the model output
 #' that are associated with 'ON' operator.
@@ -7,10 +8,12 @@
 #' for each `ON` relationship.
 #' @export
 
-plot_assoc<-function(model_output){
-  main_model = readModels(model_output)
+plot_assoc<-function(model_output=NA, model = NA, indep.var){
+  ifelse(is.na(model), main_model <- MplusAutomation::readModels(model_output),
+         main_model<-model)
   params = main_model$parameters$stdyx.standardized
   on_params = params[grep('ON', params$paramHeader),]
+  on_params = params[params$param==indep.var,]
   on_params$paramHeader <- gsub('.ON','',on_params$paramHeader)
   on_params$est_and_se = paste0(on_params$est, ' (SE= ', on_params$se,')\n p-value =',on_params$pval)
   names(on_params)[1] = 'Factors'

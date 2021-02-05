@@ -3,7 +3,7 @@
 #' @param model_output The output from mplus model
 #' @export
 
-plot_cor<-function(model_output){
+plot_cor<-function(model_output, indp_var='IND_VAR'){
   main_model = readModels(model_output)
   params = main_model$parameters$stdyx.standardized
   by_params = params[grep('BY', params$paramHeader),]
@@ -22,9 +22,16 @@ plot_cor<-function(model_output){
 
   corr = corr + t(corr)
   corr = as.data.frame(corr)
-  rownames(corr) = by_params$param[1:nparams]
-  names(corr) = by_params$param[1:nparams]
-  corr = corr[rownames(loadings),rownames(loadings)]
+  load_order<-rownames(loadings)
+  if(nrow(corr)==nparams + 1){
+    row_col_names<-c(by_params$param[1:nparams], indp_var)
+    load_order<-c(rownames(loadings), indp_var)
+  }
+  row_col_names<-by_params$param[1:nparams]
+  rownames(corr) = row_col_names
+  names(corr) = row_col_names
+
+  corr = corr[load_order,load_order]
   corrplot::corrplot(as.matrix(corr))
   #ggcorrplot::ggcorrplot(as.matrix(corr))
 }
